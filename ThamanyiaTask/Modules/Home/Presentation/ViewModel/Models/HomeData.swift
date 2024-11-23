@@ -28,8 +28,11 @@ struct PaginationData: Codable {
 
 // MARK: - Section
 
-struct SectionData: Codable {
-    var name, type, contentType: String?
+struct SectionData: Codable, Equatable , Hashable {
+    var id = UUID()
+    var name: String?
+    var contentType: ContentTypeEnum?
+    var type: DisplayTypeEnum?
     var order: Int?
     var content: [ContentData]?
 
@@ -42,7 +45,8 @@ struct SectionData: Codable {
 
 // MARK: - Content
 
-struct ContentData: Codable {
+struct ContentData: Codable, Equatable , Hashable {
+    var id: String = UUID().uuidString
     var podcastID, name, description: String?
     var avatarURL: String?
     var episodeCount, duration: Int?
@@ -96,4 +100,19 @@ struct ContentData: Codable {
         case audiobookID = "audiobook_id"
         case articleID = "article_id"
     }
+}
+
+enum DisplayTypeEnum: String, Codable {
+    case bigSquareWithDash = "big_square"
+    case bigSquare = "big square"
+    case square
+    case queue
+    case TwoLinesGrid = "2_lines_grid"
+}
+
+enum ContentTypeEnum: String, Codable {
+    case podcast
+    case episode
+    case audioBooks = "audio_book"
+    case audioArticle = "audio_article"
 }
