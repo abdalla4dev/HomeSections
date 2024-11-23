@@ -22,6 +22,7 @@ struct HomeScene: View {
             Spacer()
         }
         .background(.white)
+        .modifier(ProgressLoader(isLoading: viewModel.state == HomeState.loading))
         .task {
             await viewModel.fetchHomeData(at: 1)
         }

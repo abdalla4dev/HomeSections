@@ -11,8 +11,8 @@ class HomeViewModel: ObservableObject {
     var homeFlow: Homeflow?
     private let homeUseCase: HomeUseCase
 
-    var homeData: HomeData?
-    var errorMessage: String?
+    @Published var homeData: HomeData?
+    @Published var state: HomeState = .idle
 
     init(homeUseCase: HomeUseCase) {
         self.homeUseCase = homeUseCase
@@ -22,16 +22,17 @@ class HomeViewModel: ObservableObject {
 // MARK: Network
 
 extension HomeViewModel {
+    @MainActor
     func fetchHomeData(at page: Int) async {
-//        isLoading = true
+        state = .loading
         do {
             homeData = try await homeUseCase.fetchHome(at: page).mapToPresentation()
-            errorMessage = nil
+            state = .loaded
         } catch let error as NetworkError {
-            errorMessage = error.errorDescription
+            state = .failed(error.errorDescription ?? "Unexpected error")
         } catch {
-            errorMessage = "Unexpected error: \(error.localizedDescription)"
+            state = .failed("Unexpected error: \(error.localizedDescription)")
         }
-//        isLoading = false
+        state = .loaded
     }
 }
