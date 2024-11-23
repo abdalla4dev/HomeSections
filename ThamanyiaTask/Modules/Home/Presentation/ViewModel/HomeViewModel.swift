@@ -12,7 +12,7 @@ class HomeViewModel: ObservableObject {
     private let homeUseCase: HomeUseCase
 
     @Published var homeDataSectionList: [SectionData] = []
-    @Published var state: HomeState = .idle
+    @Published var isloading = false
 
     // pagination
     var pageNumber = 0
@@ -27,26 +27,24 @@ class HomeViewModel: ObservableObject {
 
 extension HomeViewModel {
     @MainActor
-    func fetchHomeData() async {
+    func fetchHomeData(showLoader: Bool = false) async {
         guard !reachedEnd else { return } // prevent further requests if no more pages
-        state = .loading
+        if showLoader { isloading = true }
         pageNumber += 1
 
         do {
             let homeData = try await homeUseCase.fetchHome(at: pageNumber).mapToPresentation()
-            // Safely handle optional homeDataSectionList
-
-            homeDataSectionList += homeData.sections ?? []
+            homeDataSectionList.append(contentsOf: homeData.sections ?? [])
 
             // Handle pagination
             if let totalPages = homeData.pagination?.totalPages, pageNumber >= totalPages {
                 reachedEnd = true
             }
-            state = .loaded
+            isloading = false
         } catch let error as NetworkError {
-            state = .failed(error.errorDescription ?? "Unexpected error")
+            isloading = false
         } catch {
-            state = .failed("Unexpected error: \(error.localizedDescription)")
+            isloading = false
         }
     }
 }
