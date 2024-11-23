@@ -18,8 +18,8 @@ class AppCoordinator: Coordinator {
 
     public func start() {
         // we can add logic if user signed in or not
-
-        let viewModel = HomeViewModel()
+        let homeUseCase = DefaultHomeUseCase(homeRepository: HomeRepository(homeService: HomeService()))
+        let viewModel = HomeViewModel(homeUseCase: homeUseCase)
         let homeScene = HomeCoordinator(
             window: window,
             viewModel: viewModel

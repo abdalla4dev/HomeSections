@@ -22,8 +22,8 @@ struct HomeScene: View {
             Spacer()
         }
         .background(.white)
-        .onAppear {
-//            viewModel.getHomeList()
+        .task {
+            await viewModel.fetchHomeData(at: 1)
         }
     }
 }

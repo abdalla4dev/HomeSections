@@ -25,7 +25,6 @@ class HomeCoordinator: Coordinator, ObservableObject {
 
     func start() {
         navigationController = ThamanyiaNavigationController()
-        let viewModel = HomeViewModel()
         viewModel.homeFlow = self
         navigationController.setIntialView(
             view: HomeScene(viewModel: viewModel))
