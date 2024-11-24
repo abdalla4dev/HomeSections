@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1853A8122CF39F51009A5AFD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1853A8112CF39F51009A5AFD /* README.md */; };
 		18A08F2B2CF2017A001673F7 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 18A08F2A2CF2017A001673F7 /* Lottie */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		1819AE502CF1D03B0013D172 /* ThamanyiaTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThamanyiaTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1819AE5A2CF1D03B0013D172 /* ThamanyiaTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThamanyiaTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1826025D2CF2FCBA00B87FFB /* ThamanyiaTaskTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = ThamanyiaTaskTests.xctestplan; sourceTree = "<group>"; };
+		1853A8112CF39F51009A5AFD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -94,6 +96,7 @@
 		1819AE372CF1D03A0013D172 = {
 			isa = PBXGroup;
 			children = (
+				1853A8112CF39F51009A5AFD /* README.md */,
 				1826025D2CF2FCBA00B87FFB /* ThamanyiaTaskTests.xctestplan */,
 				1819AE422CF1D03A0013D172 /* ThamanyiaTask */,
 				1819AE532CF1D03B0013D172 /* ThamanyiaTaskTests */,
@@ -236,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1853A8122CF39F51009A5AFD /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
