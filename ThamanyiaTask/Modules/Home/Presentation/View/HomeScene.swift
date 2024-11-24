@@ -17,8 +17,12 @@ struct HomeScene: View {
                 ForEach(viewModel.homeDataSectionList, id: \.id) { section in
                     Section(header: SectionHeaderView(title: section.name ?? "", type: section.contentType?.rawValue ?? "")) {
                         switch section.type {
-                        case .bigSquare, .bigSquareWithDash, .square, .queue:
+                        case .bigSquare, .bigSquareWithDash:
+                            BigSquareView(items: section.content ?? [])
+                        case .square:
                             SquareView(items: section.content ?? [])
+                        case .queue:
+                            HorizontalQueueView(items: section.content ?? [])
                         case .TwoLinesGrid:
                             TwoLinesGridView(items: section.content ?? [])
                         case .none:

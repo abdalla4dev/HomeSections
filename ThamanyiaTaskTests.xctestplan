@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "363B4449-AE2F-436D-B723-DBEBCF47FC62",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:ThamanyiaTask.xcodeproj",
+          "identifier" : "1819AE3F2CF1D03A0013D172",
+          "name" : "ThamanyiaTask"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:ThamanyiaTask.xcodeproj",
+      "identifier" : "1819AE3F2CF1D03A0013D172",
+      "name" : "ThamanyiaTask"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:ThamanyiaTask.xcodeproj",
+        "identifier" : "1819AE4F2CF1D03B0013D172",
+        "name" : "ThamanyiaTaskTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -14,10 +14,15 @@ struct SectionHeaderView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            VStack(alignment: .leading) {
+            HStack {
                 Text("\(title) (\(type))")
                     .font(.headline)
                     .foregroundColor(.white)
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .foregroundColor(.white)
+                    .font(.system(size: 18, weight: .bold))
+                    .padding(.leading, 20)
             }
             .padding(.vertical, 10)
         }

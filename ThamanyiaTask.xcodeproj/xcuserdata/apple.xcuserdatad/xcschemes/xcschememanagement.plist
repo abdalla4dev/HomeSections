@@ -9,6 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ThamanyiaTaskTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1819AE3F2CF1D03A0013D172</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1819AE4F2CF1D03B0013D172</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1819AE592CF1D03B0013D172</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 	</dict>
 </dict>
 </plist>
