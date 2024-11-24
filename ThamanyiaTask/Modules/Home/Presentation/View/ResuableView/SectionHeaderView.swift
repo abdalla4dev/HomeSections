@@ -13,18 +13,18 @@ struct SectionHeaderView: View {
     var type: String
 
     var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                Text("\(title) (\(type))")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.white)
-                    .font(.system(size: 18, weight: .bold))
-                    .padding(.leading, 20)
-            }
-            .padding(.vertical, 10)
+        HStack {
+            Text("\(title) (\(type))")
+                .font(.headline)
+                .foregroundColor(.white)
+            Spacer()
+            Image(systemName: "chevron.right")
+                .foregroundColor(.white)
+                .font(.system(size: 18, weight: .bold))
+                .padding(.leading, 20)
         }
+        .padding()
+        .background(Color("#141520")) // Explicit background for floating behavior
+        .listRowInsets(EdgeInsets()) // Ensure no default insets
     }
 }

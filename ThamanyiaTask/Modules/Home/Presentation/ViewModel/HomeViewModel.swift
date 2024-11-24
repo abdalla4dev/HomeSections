@@ -13,6 +13,7 @@ class HomeViewModel: ObservableObject {
 
     @Published var homeDataSectionList: [SectionData] = []
     @Published var isloading = false
+    @Published var errorMessage = ""
 
     // pagination
     var pageNumber = 0
@@ -43,8 +44,10 @@ extension HomeViewModel {
             isloading = false
         } catch let error as NetworkError {
             isloading = false
+            errorMessage = error.errorDescription ?? ""
         } catch {
             isloading = false
+            errorMessage = "unknown error"
         }
     }
 }

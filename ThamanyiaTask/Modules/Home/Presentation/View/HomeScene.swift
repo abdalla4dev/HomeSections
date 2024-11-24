@@ -15,7 +15,12 @@ struct HomeScene: View {
 
             List {
                 ForEach(viewModel.homeDataSectionList, id: \.id) { section in
-                    Section(header: SectionHeaderView(title: section.name ?? "", type: section.contentType?.rawValue ?? "")) {
+                    Section(
+                        header: SectionHeaderView(
+                            title: section.name ?? "",
+                            type: section.contentType?.rawValue ?? ""
+                        )
+                    ) {
                         switch section.type {
                         case .bigSquare, .bigSquareWithDash:
                             BigSquareView(items: section.content ?? [])
@@ -37,7 +42,6 @@ struct HomeScene: View {
                             }
                         }
                     }
-
                     .listRowBackground(Color.clear)
                 }
             }
@@ -45,7 +49,7 @@ struct HomeScene: View {
             .background(Color("#141520"))
         }
         .modifier(ProgressLoader(isLoading: viewModel.isloading == true))
-        .background(Color("#141520").edgesIgnoringSafeArea(.all)) // Sets overall background
+        .background(Color("#141520").edgesIgnoringSafeArea(.all))
         .task {
             await viewModel.fetchHomeData(showLoader: true)
         }
